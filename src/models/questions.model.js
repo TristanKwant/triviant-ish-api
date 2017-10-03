@@ -7,7 +7,7 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
 
   const questions = new mongooseClient.Schema({
-    questions: { type: [Object], required: true },
+    questions: { type: [String], required: true },
 
   });
 

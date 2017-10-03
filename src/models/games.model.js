@@ -46,10 +46,10 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
 
-  const questionSchema = new mongooseClient.Schema({
-    questions: { type: [Object], required: true },
-
-  });
+  // const questionSchema = new mongooseClient.Schema({
+  //   questions: { type: [Object], required: true },
+  //
+  // });
 
   const playerSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'users' },
@@ -58,7 +58,7 @@ module.exports = function (app) {
 
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
-    question: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'questions' }],
+    question: [{ type: Schema.Types, ref: 'questions' }],
     players: [playerSchema],
     rounds: {type: Number},
     started: { type: Boolean, default: false },

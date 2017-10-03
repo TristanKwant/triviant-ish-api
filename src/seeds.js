@@ -7,7 +7,7 @@ const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication-client');
 
 // const user = {
-//   name: 'Jamie Gulliver',
+//   name: 'admin',
 //   email: 'jamie@gulliver.dev',
 //   password: 'abcd1234'
 // };
@@ -37,7 +37,7 @@ const feathersClient = feathers();
 feathersClient
   .configure(hooks())
   .configure(rest('http://localhost:3030').superagent(superagent))
-  // .configure(auth());
+  .configure(auth());
 
 
         questions.map((question) => {

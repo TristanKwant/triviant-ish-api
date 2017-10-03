@@ -1,8 +1,4 @@
-const WORDS = ['abruptly', 'absurd', 'banjo', 'jazzy', 'wave', 'whiskey', 'doll', 'essential', 'donkey', 'weather', 'cupboard', 'arrange', 'table', 'rhyme', 'hurry'];
 
-function newWord() {
-  return WORDS[Math.floor(Math.random() * WORDS.length)];
-}
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function createGame (hook) {
