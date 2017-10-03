@@ -45,7 +45,7 @@ class GameClass {
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  
+
   const questionSchema = new mongooseClient.Schema({
     questions: { type: [Object], required: true },
 
@@ -64,7 +64,7 @@ module.exports = function (app) {
     started: { type: Boolean, default: false },
     winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
     currentPlayerIndex: { type: Number, default: 0 },
-    playerIds: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
+    players: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
