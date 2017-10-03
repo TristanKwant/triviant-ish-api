@@ -25,7 +25,8 @@
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/ --recursive",
+    "seed": "node src/seeds.js"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -40,18 +41,20 @@
     "feathers-errors": "^2.9.1",
     "feathers-hooks": "^2.0.2",
     "feathers-hooks-common": "^3.6.1",
-    "feathers-mongoose": "^5.1.1",
+    "feathers-mongoose": "^5.1.2",
     "feathers-rest": "^1.8.0",
     "feathers-socketio": "^2.0.0",
     "helmet": "^3.8.1",
-    "mongoose": "^4.11.5",
+    "mongoose": "^4.12.0",
     "serve-favicon": "^2.4.3",
     "winston": "^2.3.1"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
+    "feathers-authentication-client": "^0.3.3",
     "mocha": "^3.4.2",
     "request": "^2.81.0",
-    "request-promise": "^4.2.1"
+    "request-promise": "^4.2.1",
+    "superagent": "^3.6.2"
   }
 }

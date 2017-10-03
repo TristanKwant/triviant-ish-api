@@ -46,10 +46,10 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
 
-  const questionSchema = new mongooseClient.Schema({
-    questions: { type: [Object], required: true },
-
-  });
+  // const questionSchema = new mongooseClient.Schema({
+  //   questions: { type: [Object], required: true },
+  //
+  // });
 
   const playerSchema = new Schema({
     userId: { type: Schema.Types.ObjectId, ref: 'users' },
@@ -58,13 +58,13 @@ module.exports = function (app) {
 
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
-    question: [questionSchema],
-    player: [playerSchema],
+    question: [{ type: Schema.Types.ObjectId, ref: 'questions' }],
+    players: [playerSchema],
     rounds: {type: Number},
     started: { type: Boolean, default: false },
     winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
     currentPlayerIndex: { type: Number, default: 0 },
-    players: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
+    playerIds: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
