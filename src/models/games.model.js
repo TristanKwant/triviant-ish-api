@@ -44,16 +44,59 @@ class GameClass {
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
 
+  const questionSchema = new mongooseClient.Schema({
+    questions: { type: [Object], required: true },
+
+  });
+
+  // const querstionsSchema = new mongooseClient.Schema({
+  //   questions: { type: [String], required: true },
+  //
+  // });
+
+  const playerSchema = new Schema({
+    userId: { type: Schema.Types.ObjectId, ref: 'users' },
+    points: [String], // of counter OF ANSWER:
+  });
+
+
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
-    word: { type: String, required: true },
-    guesses: [String],
+    question: [questionSchema],
+    player: [playerSchema],
+    rounds: {type: Number}
+    started: { type: Boolean, default: false }
+    winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
     currentPlayerIndex: { type: Number, default: 0 },
     playerIds: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
+    draw: { type: Boolean, default: false },
   });
 
-  games.loadClass(GameClass);
+  mongooseClient.loadClass(GameClass);
   return mongooseClient.model('games', games);
 };
+
+
+// [
+//   {question1: blabla lbla
+//     options: {
+//       optionA: blablabla
+//       correct: true}
+//       {
+//         optionB: blablabla
+//         correct: true}
+//   },
+//   {question2: blabla lbla
+//     options: {
+//       optionA: blablabla
+//       correct: true}
+//       {
+//         optionB: blablabla
+//         correct: true}
+//   },
+
+//
+//
+// ]
