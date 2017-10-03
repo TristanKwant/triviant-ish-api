@@ -14,15 +14,15 @@ const auth = require('feathers-authentication-client');
 
 const questions = [
     {
-      _id: 'question2',
+      id: 'question2',
       question: 'Who won world cup 2002?',
-      optionA: ["Brazil", true],
+      optionA: ["Braizlllll", true],
       optionB: ["France", false],
       optionC: ["Italy", false],
       optionD: ["Germany", false]
     },
     {
-      _id: 'question3',
+      id: 'question3',
       question: 'Another test?',
       optionA: ["Hello", true],
       optionB: ["Welcom", false],

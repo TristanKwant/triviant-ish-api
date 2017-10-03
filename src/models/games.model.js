@@ -58,7 +58,7 @@ module.exports = function (app) {
 
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
-    question: [{ type: Schema.Types, ref: 'questions' }],
+    question: [{ type: Schema.Types.ObjectId, ref: 'questions' }],
     players: [playerSchema],
     rounds: {type: Number},
     started: { type: Boolean, default: false },
