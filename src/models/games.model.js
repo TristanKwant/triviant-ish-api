@@ -64,7 +64,7 @@ module.exports = function (app) {
     started: { type: Boolean, default: false },
     winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
     currentPlayerIndex: { type: Number, default: 0 },
-    playerIds: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
+    player: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'users' }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
