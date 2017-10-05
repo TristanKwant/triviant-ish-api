@@ -1,16 +1,11 @@
-
-// games-model.js - A mongoose model
-//
-// See http://mongoosejs.com/docs/models.html
-// for more of what you can do here.
-
 class GameClass {
   hasTurn(user) {
     return !!user; // TODO
   }
 
-  checkGuess(user, guess) {
-    return !!user && !!guess; // TODO
+
+  checkAnswer(user, question) {
+
   }
 
   nextPlayerIndex() {
@@ -38,7 +33,7 @@ class GameClass {
   }
 
   isStarted() {
-    return this.guesses.length > 0;
+    return this.started === true;
   }
 }
 
@@ -59,7 +54,7 @@ module.exports = function (app) {
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
     question: [{ type: Schema.Types.ObjectId, ref: 'questions' }],
-    players: [playerSchema],
+    playerIds: [{ type: Schema.Types.ObjectId, ref: 'users' }],
     rounds: {type: Number},
     started: { type: Boolean, default: false },
     winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
