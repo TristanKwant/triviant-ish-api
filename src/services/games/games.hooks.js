@@ -15,9 +15,12 @@ const playersSchema = {
 };
 
 
+const isGameJoinable = require('../../hooks/is-game-joinable');
+
+
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
+    all: [authenticate('jwt')],
     find: [],
     get: [],
     create: [createGame()],
@@ -27,7 +30,7 @@ module.exports = {
   },
 
   after: {
-    all: [populate({ schema: playersSchema }), fixPlayerArray()],
+    all: [populate({ schema: playersSchema }), fixPlayerArray(), isGameJoinable()],
     // all: [
     //   fixPlayerArray(),
     //   commonHooks.populate({ schema: playersSchema }),
