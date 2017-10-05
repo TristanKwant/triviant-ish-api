@@ -5,16 +5,14 @@ const GUESS = 'GUESS';
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function joinGame (hook) {
-    hook.app.service('games').get(hook.id)
+  return  hook.app.service('games').get(hook.id)
       .then((game) => {
         const { type, payload } = hook.data;
         const { user } = hook.params;
 
         switch(type) {
           case JOIN_GAME : {
-            if (game.isNotJoinableBy(user)) {
-              throw new errors.Forbidden('This game is no longer joinable!');
-            }
+
 
             hook.data = {
               playerIds: game.playerIds.concat(user._id)
