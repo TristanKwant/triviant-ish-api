@@ -2,6 +2,8 @@ const { authenticate } = require('feathers-authentication').hooks;
 const commonHooks = require('feathers-hooks-common');
 const createGame = require('../../hooks/create-game');
 const updateGame = require('../../hooks/update-game');
+const fixPlayerArray = require('../../hooks/fix-player-array');
+const { populate } = require('feathers-hooks-common');
 
 const playersSchema = {
   include: {
@@ -25,13 +27,15 @@ module.exports = {
   },
 
   after: {
-    all: [
-      commonHooks.populate({ schema: playersSchema }),
-      commonHooks.when(
-        hook => hook.params.provider,
-        commonHooks.discard('word')
-      )
-    ],
+    all: [populate({ schema: playersSchema }), fixPlayerArray()],
+    // all: [
+    //   fixPlayerArray(),
+    //   commonHooks.populate({ schema: playersSchema }),
+    //   commonHooks.when(
+    //     hook => hook.params.provider,
+    //     commonHooks.discard('word')
+    //   )
+    // ],
     find: [],
     get: [],
     create: [],
