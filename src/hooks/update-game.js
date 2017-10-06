@@ -24,17 +24,27 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
           };
 
           case ADD_POINTS : {
+            payload.answer
+            // "optionA"
+            payload.nr
+
+            if(game.questions[payload.nr].correct === payload.answer){
+              hook.data = {
+                points: game.points.map((point) => {
+                  if (point.playerId.toString() === user._id.toString()) {
+                    return Object.assign(point, { points: point.points + 1 });
+                  }
+
+                  return point;
+                })
+              };
 
 
-          hook.data = {
-            points: game.points.map((point) => {
-              if (point.playerId.toString() === user._id.toString()) {
-                return Object.assign(point, { points: point.points + 1 });
-              }
+            }
 
-              return point;
-            })
-          };
+
+
+
 
 
 
