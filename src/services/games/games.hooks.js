@@ -11,6 +11,7 @@ const playersSchema = {
     nameAs: 'players',
     parentField: 'playerIds',
     childField: '_id',
+    Field: 'points',
 
   }
 };

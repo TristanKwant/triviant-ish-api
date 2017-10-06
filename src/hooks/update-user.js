@@ -6,7 +6,7 @@ const GUESS = 'GUESS';
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function joinGame (hook) {
-  return  hook.app.service('games').get(hook.id)
+  return  hook.app.service('user').get(hook.id)
       .then((game) => {
         const { players, points} = game;
         // const playerIds = players.map((p) => (p.userId.toString()));
@@ -18,36 +18,19 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
 
 
             hook.data = {
-              playerIds: game.playerIds.concat(user._id)
+              playerIds: game.playerIds.concat(user._id),
+              $push: {points: [{playerId: user._id, points: 12}]}
             };
 
             return hook;
           };
 
           case ADD_POINTS : {
-            // hook.data.players[0].points = 0
-            // players.map((p) => (
-            //   hook.data.p.points = 2
-            // ) );
-            // hook.data.game = 0
-            // hook.data.players = players.map(p => {
 
-        //     hook.data.players = players.map((p) => {
-        //
-        //     p.points = 20;
-        //
-        //
-        //   return p;
-        // });
-
-
-
-          //   return hook;
-          // });
 
           hook.data = {
             points1: game.points1.concat(1)
-            
+
           };
 
 
