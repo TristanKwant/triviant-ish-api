@@ -12,6 +12,7 @@ module.exports = function (app) {
     optionB: { type: [] },
     optionC: { type: [] },
     optionD: { type: [] },
+    correct: { type: String}
 
   });
 
