@@ -53,7 +53,7 @@ module.exports = function (app) {
 
   const pointSchema = new Schema({
     playerId: { type: Schema.Types.ObjectId, ref: 'users' },
-    points: {type: Number, default: 12}, // of counter OF ANSWER:
+    points: {type: Number, default: 0}, // of counter OF ANSWER:
   });
 
   const games = new mongooseClient.Schema({
