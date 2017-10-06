@@ -16,26 +16,21 @@ const questions = [
     {
       id: 'question2',
       question: 'Who won world cup 2002?',
-      optionA: ['Braizlllll', true],
+      optionA: ['Brazil', true],
       optionB: ['France', false],
       optionC: ['Italy', false],
-      optionD: ['Germany', false]
+      optionD: ['Germany', false],
+      correct: 'Brazil'
     },
-    {
-      id: 'question3',
-      question: 'Another test?',
-      optionA: ['Hello', true],
-      optionB: ['Welcom', false],
-      optionC: ['No', false],
-      optionD: ['Go awya', false]
-    },
+
     {
 
       question: 'BB-8 is an astromech droid from what film franchise?',
       optionA: ['Star Trek', false],
       optionB: ['Hitchhikers Guide to the Galaxy', false],
       optionC: ['Star Wars', true],
-      optionD: ['X-men', false]
+      optionD: ['X-men', false],
+      correct: 'Star Wars'
     },
     {
 
@@ -43,7 +38,8 @@ const questions = [
       optionA: ['Couscous', false],
       optionB: ['Pizza', false],
       optionC: ['Tuna', true],
-      optionD: ['Hutspot', false]
+      optionD: ['Hutspot', false],
+      correct: 'Tuna'
     },
 
     {
@@ -52,7 +48,8 @@ const questions = [
       optionA: ['Italic Fonts', false],
       optionB: ['Fonts', false],
       optionC: ['Sans-Serif Fonts', false],
-      optionD: ['Serif Fonts', true]
+      optionD: ['Serif Fonts', true],
+      correct: 'Serif Fonts'
     },
     {
 
@@ -60,7 +57,8 @@ const questions = [
       optionA: ['Japan', true],
       optionB: ['China', false],
       optionC: ['Korea', false],
-      optionD: ['USA', false]
+      optionD: ['USA', false],
+      correct: 'Japan'
     },
     {
 
