@@ -68,7 +68,7 @@ module.exports = function (app) {
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
-    points1: [],
+    
   });
 
   games.loadClass(GameClass);

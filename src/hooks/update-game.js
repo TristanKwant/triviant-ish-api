@@ -9,7 +9,6 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return  hook.app.service('games').get(hook.id)
       .then((game) => {
         const { players, points} = game;
-        // const playerIds = players.map((p) => (p.userId.toString()));
         const { type, payload } = hook.data;
         const { user } = hook.params;
 
@@ -25,29 +24,16 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
           };
 
           case ADD_POINTS : {
-            // hook.data.players[0].points = 0
-            // players.map((p) => (
-            //   hook.data.p.points = 2
-            // ) );
-            // hook.data.game = 0
-            // hook.data.players = players.map(p => {
 
-        //     hook.data.players = players.map((p) => {
-        //
-        //     p.points = 20;
-        //
-        //
-        //   return p;
-        // });
-
-
-
-          //   return hook;
-          // });
 
           hook.data = {
-            points1: game.points1.concat(1)
-            
+            points: game.points.map((point) => {
+              if (point.playerId.toString() === user._id.toString()) {
+                return Object.assign(point, { points: point.points + 1 });
+              }
+
+              return point;
+            })
           };
 
 
