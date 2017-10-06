@@ -51,15 +51,15 @@ module.exports = function (app) {
   //
   // });
 
-  const playerSchema = new Schema({
-    userId: { type: Schema.Types.ObjectId, ref: 'users' },
-    points: [String], // of counter OF ANSWER:
+  const pointSchema = new Schema({
+    playerId: { type: Schema.Types.ObjectId, ref: 'users' },
+    points: {type: Number, default: 12}, // of counter OF ANSWER:
   });
 
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
     question: [{ type: Schema.Types.ObjectId, ref: 'questions' }],
-    players: [playerSchema],
+    points: [pointSchema],
     rounds: {type: Number},
     started: { type: Boolean, default: false },
     winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
@@ -68,6 +68,7 @@ module.exports = function (app) {
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
+    points1: [],
   });
 
   games.loadClass(GameClass);

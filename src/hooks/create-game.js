@@ -11,8 +11,15 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function createGame (hook) {
     hook.data = {
       title: `${hook.params.user.name}'s Game`,
-      playerIds: [hook.params.user._id]
+
+      playerIds: [hook.params.user._id],
+      points: [{playerId: hook.params.user._id, points: 12}]
+
     };
+
+
+
+
 
     return Promise.resolve(hook);
   };

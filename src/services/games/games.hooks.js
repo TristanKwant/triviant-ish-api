@@ -10,7 +10,9 @@ const playersSchema = {
     service: 'users',
     nameAs: 'players',
     parentField: 'playerIds',
-    childField: '_id'
+    childField: '_id',
+    Field: 'points',
+
   }
 };
 
