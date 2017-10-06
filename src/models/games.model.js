@@ -59,6 +59,7 @@ module.exports = function (app) {
   const games = new mongooseClient.Schema({
     title: { type: String, required: true },
     question: [{ type: Schema.Types.ObjectId, ref: 'questions' }],
+    questions:[],
     points: [pointSchema],
     rounds: {type: Number},
     started: { type: Boolean, default: false },
@@ -68,7 +69,7 @@ module.exports = function (app) {
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
-    
+
   });
 
   games.loadClass(GameClass);
