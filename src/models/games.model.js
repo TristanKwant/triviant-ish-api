@@ -52,8 +52,8 @@ module.exports = function (app) {
   // });
 
   const playerSchema = new Schema({
-    userId: { type: Schema.Types.ObjectId, ref: 'users' },
-    points: [String], // of counter OF ANSWER:
+    // userId: { type: Schema.Types.ObjectId, ref: 'users' },
+    points: {type: Number, default: 12, ref: 'users'}, // of counter OF ANSWER:
   });
 
   const games = new mongooseClient.Schema({
@@ -68,6 +68,7 @@ module.exports = function (app) {
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     draw: { type: Boolean, default: false },
+    points: {type: Number, default: 12},
   });
 
   games.loadClass(GameClass);

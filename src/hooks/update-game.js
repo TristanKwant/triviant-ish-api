@@ -1,12 +1,15 @@
 const errors = require('feathers-errors');
 
 const JOIN_GAME = 'JOIN_GAME';
+const ADD_POINTS = 'ADD_POINTS';
 const GUESS = 'GUESS';
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function joinGame (hook) {
   return  hook.app.service('games').get(hook.id)
       .then((game) => {
+        const { players, points} = game;
+        // const playerIds = players.map((p) => (p.userId.toString()));
         const { type, payload } = hook.data;
         const { user } = hook.params;
 
@@ -19,7 +22,39 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
             };
 
             return hook;
+          };
+
+          case ADD_POINTS : {
+            // hook.data.players[0].points = 0
+            // players.map((p) => (
+            //   hook.data.p.points = 2
+            // ) );
+            // hook.data.game = 0
+            // hook.data.players = players.map(p => {
+
+            hook.data.players = players.map(p => {
+
+              // hook.data = {
+              //   points: game.points +1
+              // }
+              p.point
+
+
+             return p;
+           });
+          // hook.data = {
+          //   points: 38
+          // }
+
+
+          //   return hook;
+          // });
+
+
+
+            return hook;
           }
+
 
           case GUESS : {
             if (!game.hasJoined(user)) {
