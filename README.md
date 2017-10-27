@@ -1,4 +1,4 @@
-# games-api-b9
+# triviant-ish-api
 
 > 
 
