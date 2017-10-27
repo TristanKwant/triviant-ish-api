@@ -15,7 +15,7 @@ Getting up and running is as easy as 1, 2, 3.
 3. Install your dependencies
 
     ```
-    cd path/to/games-api-b9; yarn install
+    cd path/to/triviant-ish-api; yarn install
     ```
 
 4. Start your app
